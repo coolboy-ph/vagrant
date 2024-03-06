@@ -38,6 +38,10 @@ vagrant halt
 ```bash
 vagrant destroy -f
 ```
+**Virtual machines status**
+```bash
+vagrant status
+```
 
 ## Accessing the Cluster
 
