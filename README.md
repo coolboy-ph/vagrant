@@ -70,6 +70,6 @@ The following scripts handle node setup:
 - Modify the Vagrantfile to align to your desired cluster size, IP addresses, or resource allocation.
 - Extend the provisioning scripts to install additional software, tools, or Kubernetes-specific components.
 
-> [!Notes]
+> [!NOTE]
 > - The virtual machines are configured with an `Ubuntu/jammy64` base box.
 > - Port forwarding is used for SSH access to the individual VMs. Check the Vagrantfile for specifics.
