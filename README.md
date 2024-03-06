@@ -22,10 +22,21 @@ This project provides a Vagrant configuration to quickly set up a local Kubernet
 vagrant plugin install vagrant-vbguest
 ```
 
-3. Start the virtual machines:
+3. Basic Vagrant Commands:
 
+**Start the virtual machines**
 ```bash
 vagrant up
+```
+
+**Stop the virtual machines**
+```bash
+vagrant halt
+```
+
+**Destroy the virtual machines**
+```bash
+vagrant destroy -f
 ```
 
 ## Accessing the Cluster
