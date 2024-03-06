@@ -35,5 +35,22 @@ sudo cp -f /etc/kubernetes/admin.conf configs/config
 sudo cp -i configs/config /home/vagrant/.kube/
 
 # Deploy Weave network
-echo "Deploy Weave network"
-kubectl apply -f "https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s-1.11.yaml"
+# echo "Deploy Weave network"
+# kubectl apply -f "https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s-1.11.yaml"
+
+# Install helm
+sudo snap install helm --classic
+
+# Install Cilium with its cilium cli
+cilium install --version 1.14.2 --namespace kube-system \
+-- kubeProxyReplacement=strict \
+--set k8sServiceHost=$MASTER_IP \
+--set k8sServicePort=6443 \
+--set hubble.enabled=true \ # for observability
+--set relay.enabled=true
+
+sleep 10
+
+# Upgrade the cilium for loadbalancer
+cilium upgrade --version 1.14.2 --namespace kube-system \
+--set gatewayAPI.enabled=true --set l2announcements.enabled=true
