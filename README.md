@@ -25,7 +25,7 @@ vagrant plugin install vagrant-vbguest
 3. Start the virtual machines:
 
 ```bash
-vagrant up```
+vagrant up
 ```
 
 ## Accessing the Cluster
