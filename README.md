@@ -48,18 +48,18 @@ vagrant destroy -f
 
 The Vagrantfile contains the following important settings:
 
-- **_NUM_WORKER_NODE_**: The number of Kubernetes worker nodes.
-- **_IP_NW_**: The base IP address for the private network.
-- **_MASTER_IP_START & NODE_IP_START_**: Starting addresses for master and worker nodes, respectively, within the private network.
+- `**NUM_WORKER_NODE**`: The number of Kubernetes worker nodes.
+- `**IP_NW**`: The base IP address for the private network.
+- `**MASTER_IP_START & NODE_IP_START**`: Starting addresses for master and worker nodes, respectively, within the private network.
 
 ## Provisioning Scripts (scripts/)
 
 The following scripts handle node setup:
 
-- **_node_setup.sh_**: Common setup steps for all nodes.
-- **_master.sh_**: Specific configuration for the Kubernetes master node.
-- **_worker.sh_**: Specific configuration for Kubernetes worker nodes.
-- **_common/_**: Contains scripts for tasks like setting up hosts file, DNS, and SSH.
+- `**node_setup.sh**`: Common setup steps for all nodes.
+- `**master.sh**`: Specific configuration for the Kubernetes master node.
+- `**worker.sh**`: Specific configuration for Kubernetes worker nodes.
+- `**common/**`: Contains scripts for tasks like setting up hosts file, DNS, and SSH.
 
 ## Customization
 
@@ -68,5 +68,5 @@ The following scripts handle node setup:
 
 ## Notes
 
-- The virtual machines are configured with an **_Ubuntu/jammy64_** base box.
+- The virtual machines are configured with an `**Ubuntu/jammy64**` base box.
 - Port forwarding is used for SSH access to the individual VMs. Check the Vagrantfile for specifics.
