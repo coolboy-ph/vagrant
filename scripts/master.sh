@@ -55,14 +55,15 @@ sudo tar xzvfC cilium-linux-${CLI_ARCH}.tar.gz /usr/local/bin
 rm cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}
 
 cilium install --version 1.14.2 --namespace kube-system \
--- kubeProxyReplacement=strict \
 --set k8sServiceHost=$MASTER_IP \
---set k8sServicePort=6443 \
---set hubble.enabled=true \
---set relay.enabled=true
+--set k8sServicePort=6443
 
 sleep 10
 
 # Upgrade the cilium for loadbalancer
 cilium upgrade --version 1.14.2 --namespace kube-system \
---set gatewayAPI.enabled=true --set l2announcements.enabled=true
+-- kubeProxyReplacement=strict \
+--set hubble.enabled=true \
+--set relay.enabled=true \
+--set gatewayAPI.enabled=true \
+--set l2announcements.enabled=true
